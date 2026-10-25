@@ -833,3 +833,123 @@ button:focus-visible {
     font-size: 0.78rem;
   }
 }
+
+
+
+/* =========================
+   TECHNICAL SKILLS
+========================= */
+
+#skills .skills-intro {
+  max-width: 680px;
+  margin-bottom: 28px;
+}
+
+#skills .skill-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 auto 28px;
+}
+
+#skills .skill-filter {
+  appearance: none;
+  padding: 9px 18px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg-soft);
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#skills .skill-filter:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+#skills .skill-filter.active {
+  background: #2563EB;
+  border-color: #2563EB;
+  color: #FFFFFF;
+}
+
+#skills .skills-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+}
+
+#skills .skill-card {
+  display: flex;
+  min-width: 0;
+  min-height: 125px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 8px;
+  background: linear-gradient(145deg, var(--card), var(--bg-soft));
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+#skills .skill-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+}
+
+#skills .skill-icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(139, 92, 246, 0.12);
+  color: var(--accent-light);
+  font-size: 1.65rem;
+  font-weight: 700;
+}
+
+#skills .skill-card h3 {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+#skills .skill-card[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 800px) {
+  #skills .skills-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  #skills .skill-filters {
+    gap: 8px;
+  }
+
+  #skills .skill-filter {
+    padding: 8px 12px;
+    font-size: 0.76rem;
+  }
+
+  #skills .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  #skills .skill-card {
+    min-height: 112px;
+  }
+}
