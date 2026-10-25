@@ -1095,3 +1095,87 @@ button:focus-visible {
     padding: 1.25rem;
   }
 }
+
+
+/* Fix: Certifications card grid layout */
+#experience .certifications-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  width: 100%;
+  margin-top: 32px;
+  align-items: stretch;
+}
+
+#experience .certification-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 24px;
+  background: linear-gradient(145deg, #111827, #0D1220);
+  border: 1px solid #273244;
+  border-radius: 16px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+#experience .certification-card:hover {
+  transform: translateY(-4px);
+  border-color: #8B5CF6;
+}
+
+#experience .certification-card.featured-cert {
+  border-color: #8B5CF6;
+}
+
+#experience .certification-icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 16px;
+  border-radius: 13px;
+  background: rgba(139, 92, 246, 0.16);
+  font-size: 24px;
+}
+
+#experience .certification-card h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+#experience .certification-year {
+  color: #A78BFA;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+#experience .certification-issuer {
+  color: #F8FAFC;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+#experience .certification-card > p:not(.certification-year):not(.certification-issuer) {
+  font-size: 14px;
+  line-height: 1.65;
+  margin-bottom: 0;
+}
+
+#experience .certification-link {
+  margin-top: auto;
+  padding-top: 18px;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  #experience .certifications-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  #experience .certifications-grid {
+    grid-template-columns: 1fr;
+  }
+}
