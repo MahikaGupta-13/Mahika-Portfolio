@@ -55,3 +55,30 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const skillButtons = document.querySelectorAll(".skill-filter");
+  const skillCards = document.querySelectorAll(".skill-card");
+
+  skillButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const selected = button.dataset.skillFilter;
+
+      skillButtons.forEach((item) => {
+        const isActive = item === button;
+        item.classList.toggle("active", isActive);
+        item.setAttribute("aria-pressed", String(isActive));
+      });
+
+      skillCards.forEach((card) => {
+        const matches =
+          selected === "all" ||
+          card.dataset.skillCategory === selected;
+
+        card.hidden = !matches;
+      });
+    });
+  });
+});
