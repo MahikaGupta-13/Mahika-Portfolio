@@ -990,3 +990,108 @@ button:focus-visible {
   transform: translateY(-3px) scale(1.05);
 }
 
+
+/* Certifications & Achievements */
+
+.certifications-intro {
+  max-width: 700px;
+  margin-bottom: 2rem;
+}
+
+.certifications-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.certification-card {
+  min-width: 0;
+  padding: 1.5rem;
+  background: linear-gradient(
+    145deg,
+    rgba(17, 24, 39, 0.96),
+    rgba(13, 18, 32, 0.96)
+  );
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.certification-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+}
+
+.certification-card.featured-cert {
+  border-color: rgba(139, 92, 246, 0.65);
+  background: linear-gradient(
+    145deg,
+    rgba(139, 92, 246, 0.12),
+    rgba(17, 24, 39, 0.96)
+  );
+}
+
+.certification-icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1rem;
+  border-radius: 13px;
+  background: rgba(139, 92, 246, 0.16);
+  font-size: 1.5rem;
+}
+
+.certification-year {
+  margin-bottom: 0.5rem;
+  color: var(--accent-light);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.certification-card h3 {
+  margin: 0 0 0.6rem;
+  font-size: 1.08rem;
+}
+
+.certification-issuer {
+  margin-bottom: 0.75rem;
+  color: var(--text);
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.certification-card > p:not(.certification-year):not(.certification-issuer) {
+  margin-bottom: 0;
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+.certification-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--accent-light);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.certification-link:hover {
+  color: var(--text);
+}
+
+@media (max-width: 900px) {
+  .certifications-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .certifications-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .certification-card {
+    padding: 1.25rem;
+  }
+}
