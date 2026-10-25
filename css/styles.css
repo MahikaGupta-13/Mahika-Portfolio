@@ -497,3 +497,9 @@ button:focus-visible {
     animation-duration: 0.01ms !important;
   }
 }
+/* Keep the full specialization text on one line */
+.hero-content .eyebrow {
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
