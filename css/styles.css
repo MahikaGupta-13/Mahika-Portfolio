@@ -680,3 +680,43 @@ button:focus-visible {
     gap: 28px;
   }
 }
+
+
+/* About Me: polished professional highlights */
+
+#about .about-content > p:not(.eyebrow) {
+  max-width: 540px;
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+}
+
+#about .about-points {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+  display: grid;
+  gap: 1rem;
+}
+
+#about .about-points li {
+  position: relative;
+  padding: 0.9rem 1rem 0.9rem 1.2rem;
+  background: rgba(17, 24, 39, 0.55);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 10px;
+}
+
+#about .about-points strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+#about .about-points span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
