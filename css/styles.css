@@ -953,3 +953,19 @@ button:focus-visible {
     min-height: 112px;
   }
 }
+
+
+#skills .skill-filter {
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+#skills .skill-filter:focus-visible {
+  outline: 2px solid var(--accent-light);
+  outline-offset: 3px;
+}
+
+#skills .skill-card[hidden] {
+  display: none !important;
+}
