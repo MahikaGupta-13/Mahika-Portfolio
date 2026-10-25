@@ -767,54 +767,68 @@ button:focus-visible {
 
 
 /* Project filter buttons */
-.project-filters {
+
+
+
+#projects .project-filters {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   gap: 10px;
   margin: 0 auto 28px;
 }
 
-.filter-btn {
+#projects .project-filters .filter-btn {
+  appearance: none;
+  -webkit-appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 9px 20px;
   border: 1px solid var(--border);
   border-radius: 999px;
-  background: var(--card);
+  background: var(--bg-soft);
   color: var(--muted);
-  font: inherit;
+  font-family: inherit;
   font-size: 0.85rem;
+  font-weight: 500;
   line-height: 1.4;
+  white-space: nowrap;
   cursor: pointer;
   transition: background 0.2s ease, color 0.2s ease,
-              border-color 0.2s ease, transform 0.2s ease;
+    border-color 0.2s ease, transform 0.2s ease;
 }
 
-.filter-btn:hover {
+#projects .project-filters .filter-btn:hover {
+  background: rgba(139, 92, 246, 0.12);
   border-color: var(--accent);
   color: var(--text);
+  transform: translateY(-1px);
 }
 
-.filter-btn.active {
+#projects .project-filters .filter-btn.active {
   background: #2563EB;
   border-color: #2563EB;
   color: #FFFFFF;
+  font-weight: 600;
 }
 
-.filter-btn:focus-visible {
+#projects .project-filters .filter-btn:focus-visible {
   outline: 2px solid var(--accent-light);
   outline-offset: 3px;
 }
 
-.project-card[hidden] {
+#projects .project-card[hidden] {
   display: none !important;
 }
 
 @media (max-width: 480px) {
-  .project-filters {
+  #projects .project-filters {
     gap: 8px;
   }
 
-  .filter-btn {
+  #projects .project-filters .filter-btn {
     padding: 8px 13px;
     font-size: 0.78rem;
   }
