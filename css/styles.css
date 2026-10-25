@@ -595,3 +595,88 @@ button:focus-visible {
     padding: 1.25rem;
   }
 }
+
+
+/* FIX: About Me and My Journey side-by-side */
+
+#about .about-grid {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr) !important;
+  gap: 48px;
+  align-items: start;
+  width: 100%;
+}
+
+#about .about-content,
+#about .journey {
+  min-width: 0;
+  width: 100%;
+}
+
+#about .journey {
+  padding: 24px;
+  background: #111827;
+  border: 1px solid #273244;
+  border-radius: 14px;
+}
+
+#about .journey h3 {
+  margin: 0 0 24px;
+  color: #F8FAFC;
+  font-size: 1.2rem;
+}
+
+#about .journey-item {
+  position: relative;
+  padding-left: 24px;
+  padding-bottom: 24px;
+  border-left: 2px solid #273244;
+}
+
+#about .journey-item:last-child {
+  padding-bottom: 0;
+  border-left-color: transparent;
+}
+
+#about .journey-dot {
+  position: absolute;
+  top: 5px;
+  left: -6px;
+  width: 10px;
+  height: 10px;
+  background: #080B14;
+  border: 2px solid #8B5CF6;
+  border-radius: 50%;
+}
+
+#about .journey-date {
+  margin: 0 0 4px;
+  color: #A78BFA;
+  font-size: 0.8rem;
+}
+
+#about .journey-item h4 {
+  margin: 0 0 4px;
+  color: #F8FAFC;
+  font-size: 0.95rem;
+}
+
+#about .journey-place {
+  margin: 0 0 6px;
+  color: #AAB3C5;
+  font-size: 0.85rem;
+}
+
+#about .journey-description {
+  margin: 0;
+  color: #AAB3C5;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 800px) {
+  #about .about-grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px;
+  }
+}
