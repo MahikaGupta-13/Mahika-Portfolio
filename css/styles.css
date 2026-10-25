@@ -1251,3 +1251,16 @@ button:focus-visible {
     grid-template-columns: 1fr;
   }
 }
+
+/* Multiple links within a project card */
+.project-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin-top: 1.4rem;
+}
+
+.project-links .project-link {
+  margin-top: 0;
+}
