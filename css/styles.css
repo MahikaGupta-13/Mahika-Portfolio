@@ -1,4 +1,3 @@
-
 /* =========================
    1. DESIGN TOKENS & RESET
 ========================= */
@@ -40,7 +39,8 @@ body {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   color: var(--text);
   line-height: 1.2;
   letter-spacing: -0.03em;
@@ -79,6 +79,7 @@ button:focus-visible {
   z-index: 100;
   background: rgba(8, 11, 20, 0.96);
   border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
 }
 
 .nav {
@@ -145,8 +146,6 @@ button:focus-visible {
     var(--bg);
 }
 
-/* Main introduction and photo */
-
 .hero-grid {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
@@ -171,6 +170,12 @@ button:focus-visible {
   margin-bottom: 1.2rem;
 }
 
+.hero-content .eyebrow {
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
 .hero h1 {
   font-size: clamp(3rem, 6vw, 4.5rem);
   line-height: 1.08;
@@ -178,12 +183,7 @@ button:focus-visible {
 }
 
 .gradient-text {
-  background: linear-gradient(
-    100deg,
-    #A78BFA,
-    #7C5CFF,
-    #60A5FA
-  );
+  background: linear-gradient(100deg, #A78BFA, #7C5CFF, #60A5FA);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -264,8 +264,6 @@ button:focus-visible {
   border-radius: 48% 52% 46% 54% / 42% 43% 57% 58%;
 }
 
-/* Offset purple ring behind the photo */
-
 .profile-frame::before {
   content: "";
   position: absolute;
@@ -292,11 +290,6 @@ button:focus-visible {
 /* =========================
    6. KPI / STATS CARDS
 ========================= */
-
-/*
-   Cards remain in normal document flow.
-   They will not overlap the buttons or photo.
-*/
 
 .stats-grid {
   display: grid;
@@ -345,7 +338,7 @@ button:focus-visible {
 }
 
 /* =========================
-   7. CONTENT SECTIONS
+   7. GENERAL CONTENT SECTIONS
 ========================= */
 
 .section {
@@ -362,7 +355,242 @@ button:focus-visible {
 }
 
 /* =========================
-   8. FOOTER
+   8. ABOUT ME & MY JOURNEY
+========================= */
+
+#about .about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  gap: 48px;
+  align-items: start;
+  width: 100%;
+}
+
+#about .about-content,
+#about .journey {
+  min-width: 0;
+  width: 100%;
+}
+
+#about .about-content h2 {
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+}
+
+#about .about-content > p:not(.eyebrow) {
+  max-width: 540px;
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+}
+
+#about .about-points {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+  display: grid;
+  gap: 1rem;
+}
+
+#about .about-points li {
+  padding: 0.9rem 1rem 0.9rem 1.2rem;
+  background: rgba(17, 24, 39, 0.55);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 10px;
+}
+
+#about .about-points strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+#about .about-points span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+#about .journey {
+  padding: 24px;
+  background: #111827;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+#about .journey h3 {
+  margin: 0 0 24px;
+  color: var(--text);
+  font-size: 1.2rem;
+}
+
+#about .journey-item {
+  position: relative;
+  padding-left: 24px;
+  padding-bottom: 24px;
+  border-left: 2px solid var(--border);
+}
+
+#about .journey-item:last-child {
+  padding-bottom: 0;
+  border-left-color: transparent;
+}
+
+#about .journey-dot {
+  position: absolute;
+  top: 5px;
+  left: -6px;
+  width: 10px;
+  height: 10px;
+  background: var(--bg);
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+}
+
+#about .journey-date {
+  margin: 0 0 4px;
+  color: var(--accent-light);
+  font-size: 0.8rem;
+}
+
+#about .journey-item h4 {
+  margin: 0 0 4px;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+#about .journey-place {
+  margin: 0 0 6px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+#about .journey-description {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* =========================
+   9. FEATURED PROJECTS
+========================= */
+
+#projects .projects-intro {
+  max-width: 680px;
+  margin-bottom: 28px;
+}
+
+#projects .projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 28px;
+  align-items: stretch;
+}
+
+#projects .project-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  padding: 0;
+  background: linear-gradient(
+    145deg,
+    rgba(17, 24, 39, 0.96),
+    rgba(13, 18, 32, 0.96)
+  );
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+#projects .project-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+}
+
+#projects .project-image {
+  display: block;
+  width: 100%;
+  height: 155px;
+  object-fit: cover;
+  object-position: center;
+  background: var(--bg-soft);
+  border-bottom: 1px solid var(--border);
+}
+
+#projects .project-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: flex-start;
+  padding: 16px;
+}
+
+#projects .project-category {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--accent-light);
+  font-size: 0.73rem;
+}
+
+#projects .project-card h3 {
+  margin: 0 0 9px;
+  font-size: 1.05rem;
+  line-height: 1.4;
+}
+
+#projects .project-card p {
+  max-width: none;
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.6;
+}
+
+#projects .project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 4px;
+}
+
+#projects .project-tags span {
+  padding: 4px 8px;
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  border-radius: 6px;
+  background: rgba(139, 92, 246, 0.1);
+  color: #D8CCFF;
+  font-size: 0.7rem;
+}
+
+#projects .project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  align-self: flex-start;
+  margin-top: 16px;
+  color: var(--accent-light);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+#projects .project-link:hover {
+  color: var(--text);
+}
+
+#projects .projects-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+/* =========================
+   10. FOOTER
 ========================= */
 
 .site-footer {
@@ -377,8 +605,14 @@ button:focus-visible {
 }
 
 /* =========================
-   9. TABLET & MOBILE
+   11. TABLET & MOBILE
 ========================= */
+
+@media (max-width: 900px) {
+  #projects .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
 
 @media (max-width: 800px) {
   .nav {
@@ -418,6 +652,10 @@ button:focus-visible {
     text-align: center;
   }
 
+  .hero-content .eyebrow {
+    white-space: normal;
+  }
+
   .hero-description {
     margin-inline: auto;
   }
@@ -437,7 +675,6 @@ button:focus-visible {
   .stats-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
-    padding-top: 0;
     padding-bottom: 24px;
   }
 
@@ -445,9 +682,26 @@ button:focus-visible {
     min-height: 90px;
     padding: 1rem;
   }
+
+  #about .about-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  #about .journey {
+    padding: 20px;
+  }
 }
 
-/* Small mobile screens */
+@media (max-width: 560px) {
+  #projects .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #projects .project-image {
+    height: 190px;
+  }
+}
 
 @media (max-width: 480px) {
   .container {
@@ -456,6 +710,11 @@ button:focus-visible {
 
   .hero h1 {
     font-size: 2.8rem;
+  }
+
+  .hero-content .eyebrow {
+    font-size: 0.64rem;
+    letter-spacing: 0.05em;
   }
 
   .profile-frame {
@@ -481,6 +740,14 @@ button:focus-visible {
   .section {
     padding-block: 3.5rem;
   }
+
+  #about .journey {
+    padding: 16px;
+  }
+
+  #about .about-points li {
+    padding: 0.8rem;
+  }
 }
 
 /* Respect reduced-motion preferences */
@@ -495,365 +762,5 @@ button:focus-visible {
   *::after {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
-  }
-}
-/* Keep the full specialization text on one line */
-.hero-content .eyebrow {
-  font-size: 0.68rem;
-  letter-spacing: 0.08em;
-  white-space: nowrap;
-}
-
-
-
-/* =========================
-   ABOUT ME & MY JOURNEY
-========================= */
-
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 0.9fr;
-  gap: 3rem;
-  align-items: start;
-}
-
-.about-content h2 {
-  margin-top: 0;
-  margin-bottom: 1.2rem;
-}
-
-.about-content > p:not(.eyebrow) {
-  max-width: 520px;
-}
-
-.journey {
-  padding: 1.5rem;
-  background: rgba(17, 24, 39, 0.55);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-}
-
-.journey h3 {
-  margin: 0 0 1.5rem;
-  font-size: 1.2rem;
-}
-
-.journey-item {
-  position: relative;
-  padding-left: 1.5rem;
-  padding-bottom: 1.5rem;
-  border-left: 2px solid var(--border);
-}
-
-.journey-item:last-child {
-  padding-bottom: 0;
-  border-left-color: transparent;
-}
-
-.journey-dot {
-  position: absolute;
-  top: 0.25rem;
-  left: -6px;
-  width: 10px;
-  height: 10px;
-  background: var(--bg);
-  border: 2px solid var(--accent);
-  border-radius: 50%;
-}
-
-.journey-date {
-  margin: 0 0 0.2rem;
-  color: var(--accent-light);
-  font-size: 0.78rem;
-}
-
-.journey-item h4 {
-  margin: 0 0 0.2rem;
-  color: var(--text);
-  font-size: 0.98rem;
-}
-
-.journey-place {
-  margin: 0 0 0.4rem;
-  color: var(--muted);
-  font-size: 0.85rem;
-}
-
-.journey-description {
-  margin: 0;
-  font-size: 0.85rem;
-  line-height: 1.6;
-}
-
-@media (max-width: 800px) {
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .journey {
-    padding: 1.25rem;
-  }
-}
-
-
-/* FIX: About Me and My Journey side-by-side */
-
-#about .about-grid {
-  display: grid !important;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr) !important;
-  gap: 48px;
-  align-items: start;
-  width: 100%;
-}
-
-#about .about-content,
-#about .journey {
-  min-width: 0;
-  width: 100%;
-}
-
-#about .journey {
-  padding: 24px;
-  background: #111827;
-  border: 1px solid #273244;
-  border-radius: 14px;
-}
-
-#about .journey h3 {
-  margin: 0 0 24px;
-  color: #F8FAFC;
-  font-size: 1.2rem;
-}
-
-#about .journey-item {
-  position: relative;
-  padding-left: 24px;
-  padding-bottom: 24px;
-  border-left: 2px solid #273244;
-}
-
-#about .journey-item:last-child {
-  padding-bottom: 0;
-  border-left-color: transparent;
-}
-
-#about .journey-dot {
-  position: absolute;
-  top: 5px;
-  left: -6px;
-  width: 10px;
-  height: 10px;
-  background: #080B14;
-  border: 2px solid #8B5CF6;
-  border-radius: 50%;
-}
-
-#about .journey-date {
-  margin: 0 0 4px;
-  color: #A78BFA;
-  font-size: 0.8rem;
-}
-
-#about .journey-item h4 {
-  margin: 0 0 4px;
-  color: #F8FAFC;
-  font-size: 0.95rem;
-}
-
-#about .journey-place {
-  margin: 0 0 6px;
-  color: #AAB3C5;
-  font-size: 0.85rem;
-}
-
-#about .journey-description {
-  margin: 0;
-  color: #AAB3C5;
-  font-size: 0.85rem;
-  line-height: 1.6;
-}
-
-@media (max-width: 800px) {
-  #about .about-grid {
-    grid-template-columns: 1fr !important;
-    gap: 28px;
-  }
-}
-
-
-/* About Me: polished professional highlights */
-
-#about .about-content > p:not(.eyebrow) {
-  max-width: 540px;
-  margin-bottom: 1.5rem;
-  line-height: 1.8;
-}
-
-#about .about-points {
-  list-style: none;
-  padding: 0;
-  margin: 1.5rem 0 0;
-  display: grid;
-  gap: 1rem;
-}
-
-#about .about-points li {
-  position: relative;
-  padding: 0.9rem 1rem 0.9rem 1.2rem;
-  background: rgba(17, 24, 39, 0.55);
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--accent);
-  border-radius: 10px;
-}
-
-#about .about-points strong {
-  display: block;
-  margin-bottom: 0.25rem;
-  color: var(--text);
-  font-size: 0.95rem;
-}
-
-#about .about-points span {
-  display: block;
-  color: var(--muted);
-  font-size: 0.88rem;
-  line-height: 1.65;
-}
-
-
-
-/* =========================
-   FEATURED PROJECTS
-========================= */
-
-.projects-intro {
-  max-width: 680px;
-  margin-bottom: 2rem;
-}
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.25rem;
-  margin-top: 2rem;
-}
-
-.project-card {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  padding: 1.5rem;
-  background: linear-gradient(
-    145deg,
-    rgba(17, 24, 39, 0.96),
-    rgba(13, 18, 32, 0.96)
-  );
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  transition: transform 0.25s ease, border-color 0.25s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--accent);
-}
-
-.project-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-  margin-bottom: 1.25rem;
-}
-
-.project-icon {
-  display: grid;
-  place-items: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
-  background: rgba(139, 92, 246, 0.13);
-  font-size: 1.5rem;
-}
-
-.project-category {
-  color: var(--accent-light);
-  font-size: 0.75rem;
-  text-align: right;
-}
-
-.project-card h3 {
-  margin: 0 0 0.75rem;
-  font-size: 1.25rem;
-}
-
-.project-card > p {
-  margin: 0 0 1.25rem;
-  color: var(--muted);
-  font-size: 0.92rem;
-  line-height: 1.75;
-}
-
-.project-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: auto;
-  padding-top: 0.25rem;
-}
-
-.project-tags span {
-  padding: 0.3rem 0.65rem;
-  color: #D8CCFF;
-  background: rgba(139, 92, 246, 0.1);
-  border: 1px solid rgba(139, 92, 246, 0.25);
-  border-radius: 999px;
-  font-size: 0.73rem;
-}
-
-.project-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  align-self: flex-start;
-  margin-top: 1.4rem;
-  color: var(--accent-light);
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-.project-link:hover {
-  color: var(--text);
-}
-
-.project-link span {
-  transition: transform 0.2s ease;
-}
-
-.project-link:hover span {
-  transform: translate(3px, -3px);
-}
-
-.projects-more {
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
-}
-
-@media (max-width: 650px) {
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .project-card {
-    padding: 1.25rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .project-card,
-  .project-link span {
-    transition: none;
   }
 }
