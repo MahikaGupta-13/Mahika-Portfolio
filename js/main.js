@@ -27,3 +27,31 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const projectCards = document.querySelectorAll(".project-card");
+
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const selectedFilter = button.dataset.filter;
+
+      filterButtons.forEach((btn) => {
+        const isActive = btn === button;
+        btn.classList.toggle("active", isActive);
+        btn.setAttribute("aria-pressed", String(isActive));
+      });
+
+      projectCards.forEach((card) => {
+        const categories = (card.dataset.category || "").split(/\s+/);
+        const shouldShow =
+          selectedFilter === "all" ||
+          categories.includes(selectedFilter);
+
+        card.hidden = !shouldShow;
+      });
+    });
+  });
+});
