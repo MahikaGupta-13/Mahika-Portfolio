@@ -58,26 +58,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
 document.addEventListener("DOMContentLoaded", () => {
-  const skillButtons = document.querySelectorAll(".skill-filter");
-  const skillCards = document.querySelectorAll(".skill-card");
+  const skillSection = document.querySelector("#skills");
+  if (!skillSection) return;
 
-  skillButtons.forEach((button) => {
+  const buttons = skillSection.querySelectorAll(".skill-filter");
+  const cards = skillSection.querySelectorAll(".skill-card");
+
+  buttons.forEach((button) => {
     button.addEventListener("click", () => {
-      const selected = button.dataset.skillFilter;
+      const selectedCategory = button.dataset.skillFilter;
 
-      skillButtons.forEach((item) => {
-        const isActive = item === button;
-        item.classList.toggle("active", isActive);
-        item.setAttribute("aria-pressed", String(isActive));
+      buttons.forEach((item) => {
+        const active = item === button;
+        item.classList.toggle("active", active);
+        item.setAttribute("aria-pressed", String(active));
       });
 
-      skillCards.forEach((card) => {
-        const matches =
-          selected === "all" ||
-          card.dataset.skillCategory === selected;
-
-        card.hidden = !matches;
+      cards.forEach((card) => {
+        const category = card.dataset.skillCategory;
+        card.hidden =
+          selectedCategory !== "all" &&
+          category !== selectedCategory;
       });
     });
   });
