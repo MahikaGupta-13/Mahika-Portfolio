@@ -291,12 +291,16 @@ button:focus-visible {
    KPI / STATS STRIP
 ========================= */
 
+
 .stats-grid {
-  display: grid;
+  display: grid !important;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1rem;
-  padding: 1.5rem 0 2.5rem;
+  gap: 16px;
+  width: 100%;
+  padding: 8px 0 40px;
+  margin-top: -18px;
 }
+
 
 .stat-card {
   display: flex;
