@@ -969,3 +969,24 @@ button:focus-visible {
 #skills .skill-card[hidden] {
   display: none !important;
 }
+
+
+/* Colourful skill icons inside purple tiles */
+#skills .skill-icon {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  margin: 0 auto 12px;
+  border-radius: 15px;
+  background: rgba(139, 92, 246, 0.16);
+  color: var(--accent-light);
+  font-size: 1.8rem;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+#skills .skill-card:hover .skill-icon {
+  transform: translateY(-3px) scale(1.05);
+}
+
