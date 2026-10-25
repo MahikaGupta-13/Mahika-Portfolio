@@ -146,15 +146,16 @@ button:focus-visible {
 }
 
 
+
 .hero-grid {
-  min-height: 0;
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
   align-items: center;
   gap: 3rem;
   padding-top: 3rem;
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
 }
+
 
 
 .hero-content {
@@ -257,6 +258,7 @@ button:focus-visible {
 }
 
 
+
 .profile-frame {
   position: relative;
   isolation: isolate;
@@ -264,6 +266,7 @@ button:focus-visible {
   aspect-ratio: 0.82;
   border-radius: 48% 52% 46% 54% / 42% 43% 57% 58%;
 }
+
 
 
 /* Separate purple ring, offset behind the photo */
@@ -299,16 +302,18 @@ button:focus-visible {
 
 
 
+
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
   width: 100%;
-  padding: 8px 0 32px;
-  margin-top: -65px;
+  padding: 0 0 32px;
+  margin-top: 0;
   position: relative;
   z-index: 2;
 }
+
 
 .stat-card {
   display: flex;
@@ -378,12 +383,60 @@ button:focus-visible {
   margin-bottom: 0.5rem;
 }
 
+
 /* =========================
    8. RESPONSIVE DESIGN
 ========================= */
 
-
 @media (max-width: 800px) {
+  .nav {
+    min-height: 64px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: var(--bg-soft);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-block: 3rem 1rem;
+  }
+
+  .hero-content {
+    text-align: center;
+  }
+
+  .hero-description {
+    margin-inline: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-visual {
+    grid-row: 1;
+  }
+
   .profile-frame {
     width: min(75%, 265px);
   }
@@ -392,9 +445,8 @@ button:focus-visible {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
     margin-top: 0;
+    padding-top: 1rem;
   }
-}
-
 
   .stat-card {
     min-height: 90px;
@@ -403,22 +455,52 @@ button:focus-visible {
 }
 
 @media (max-width: 480px) {
+  .container {
+    width: min(100% - 2rem, var(--max-width));
+  }
+
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+
   .profile-frame {
     width: min(75%, 225px);
   }
 
   .stats-grid {
-    gap: 0.6rem;
+    gap: 10px;
   }
 
   .stat-card {
     padding: 0.85rem;
   }
 
+  .stat-number {
+    font-size: 22px;
+  }
+
   .stat-label {
     font-size: 0.78rem;
   }
+
+  .section {
+    padding-block: 3.5rem;
+  }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
 
 
 
