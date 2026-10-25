@@ -255,28 +255,76 @@ button:focus-visible {
 
 .profile-frame {
   position: relative;
+  isolation: isolate;
   width: min(100%, 285px);
   aspect-ratio: 0.82;
-  padding: 7px;
+  border-radius: 48% 52% 46% 54% / 42% 43% 57% 58%;
+}
+
+/* Separate purple ring, offset behind the photo */
+.profile-frame::before {
+  content: "";
+  position: absolute;
+  inset: -7px -10px 5px 9px;
   border: 3px solid var(--accent);
-  border-radius: 46% 54% 48% 52% / 43% 42% 58% 57%;
-  transform: rotate(-4deg);
-  background: linear-gradient(
-    145deg,
-    rgba(139, 92, 246, 0.25),
-    rgba(96, 165, 250, 0.08)
-  );
-  box-shadow: 0 0 30px rgba(139, 92, 246, 0.2);
+  border-radius: 58% 42% 55% 45% / 45% 48% 52% 55%;
+  transform: rotate(11deg);
+  z-index: -1;
+  box-shadow: 0 0 24px rgba(139, 92, 246, 0.16);
 }
 
 .profile-image {
   display: block;
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
-  border-radius: 46% 54% 48% 52% / 43% 42% 58% 57%;
-  transform: rotate(4deg);
+  border-radius: inherit;
+  transform: rotate(-2deg);
+}
+
+/* =========================
+   KPI / STATS STRIP
+========================= */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 1.5rem 0 2.5rem;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.25rem;
+  min-height: 100px;
+  padding: 1.1rem 1.25rem;
+  background: rgba(17, 24, 39, 0.65);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  transition: border-color 0.2s ease,
+              transform 0.2s ease;
+}
+
+.stat-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+
+.stat-number {
+  color: var(--accent-light);
+  font-size: clamp(1.35rem, 2.5vw, 1.8rem);
+  font-weight: 750;
+  line-height: 1.3;
+}
+
+.stat-label {
+  color: var(--muted);
+  font-size: 0.85rem;
 }
 
 /* =========================
@@ -295,6 +343,7 @@ button:focus-visible {
 .section p:not(.eyebrow) {
   max-width: 680px;
 }
+
 
 /* =========================
    7. FOOTER
@@ -316,54 +365,6 @@ button:focus-visible {
 ========================= */
 
 @media (max-width: 800px) {
-  .nav {
-    min-height: 64px;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 64px;
-    left: 0;
-    right: 0;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-    padding: 1rem 1.25rem;
-    background: var(--bg-soft);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .nav-links.open {
-    display: flex;
-  }
-
-  .nav-links a {
-    padding: 0.2rem 0;
-  }
-
-  .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    padding-block: 3rem;
-  }
-
-  .hero-content {
-    text-align: center;
-  }
-
-  .hero-description {
-    margin-inline: auto;
-  }
-
-  .hero-actions {
-    justify-content: center;
-  }
-
   .hero-visual {
     grid-row: 1;
   }
@@ -371,39 +372,33 @@ button:focus-visible {
   .profile-frame {
     width: min(75%, 250px);
   }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+    padding-top: 1rem;
+  }
+
+  .stat-card {
+    min-height: 90px;
+    padding: 1rem;
+  }
 }
 
 @media (max-width: 480px) {
-  .container {
-    width: min(100% - 2rem, var(--max-width));
-  }
-
-  .hero h1 {
-    font-size: 2.8rem;
-  }
-
-  .hero-grid {
-    gap: 1.5rem;
-  }
-
   .profile-frame {
     width: min(75%, 225px);
   }
 
-  .section {
-    padding-block: 3.5rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
+  .stats-grid {
+    gap: 0.6rem;
   }
 
-  *,
-  *::before,
-  *::after {
-    transition-duration: 0.01ms !important;
-    animation-duration: 0.01ms !important;
+  .stat-card {
+    padding: 0.85rem;
+  }
+
+  .stat-label {
+    font-size: 0.78rem;
   }
 }
