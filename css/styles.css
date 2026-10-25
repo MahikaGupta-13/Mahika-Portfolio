@@ -503,3 +503,95 @@ button:focus-visible {
   letter-spacing: 0.08em;
   white-space: nowrap;
 }
+
+
+
+/* =========================
+   ABOUT ME & MY JOURNEY
+========================= */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.about-content h2 {
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+}
+
+.about-content > p:not(.eyebrow) {
+  max-width: 520px;
+}
+
+.journey {
+  padding: 1.5rem;
+  background: rgba(17, 24, 39, 0.55);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.journey h3 {
+  margin: 0 0 1.5rem;
+  font-size: 1.2rem;
+}
+
+.journey-item {
+  position: relative;
+  padding-left: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-left: 2px solid var(--border);
+}
+
+.journey-item:last-child {
+  padding-bottom: 0;
+  border-left-color: transparent;
+}
+
+.journey-dot {
+  position: absolute;
+  top: 0.25rem;
+  left: -6px;
+  width: 10px;
+  height: 10px;
+  background: var(--bg);
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+}
+
+.journey-date {
+  margin: 0 0 0.2rem;
+  color: var(--accent-light);
+  font-size: 0.78rem;
+}
+
+.journey-item h4 {
+  margin: 0 0 0.2rem;
+  color: var(--text);
+  font-size: 0.98rem;
+}
+
+.journey-place {
+  margin: 0 0 0.4rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.journey-description {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 800px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .journey {
+    padding: 1.25rem;
+  }
+}
