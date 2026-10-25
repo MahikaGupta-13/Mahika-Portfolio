@@ -145,14 +145,17 @@ button:focus-visible {
     var(--bg);
 }
 
+
 .hero-grid {
-  min-height: 590px;
+  min-height: 0;
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
   align-items: center;
   gap: 3rem;
-  padding-block: 4rem;
+  padding-top: 3rem;
+  padding-bottom: 1rem;
 }
+
 
 .hero-content {
   position: relative;
@@ -292,13 +295,14 @@ button:focus-visible {
 ========================= */
 
 
+
 .stats-grid {
   display: grid !important;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
   width: 100%;
-  padding: 8px 0 40px;
-  margin-top: -18px;
+  padding: 8px 0 32px;
+  margin-top: 0;
 }
 
 
