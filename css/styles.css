@@ -270,21 +270,16 @@ button:focus-visible {
 }
 
 .profile-placeholder {
+  
+.profile-image {
+  display: block;
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  object-fit: cover;
   border-radius: inherit;
-  background:
-    radial-gradient(
-      circle at 50% 30%,
-      rgba(139, 92, 246, 0.2),
-      transparent 55%
-    ),
-    var(--card);
   transform: rotate(4deg);
+}
+
 }
 
 .profile-placeholder span {
